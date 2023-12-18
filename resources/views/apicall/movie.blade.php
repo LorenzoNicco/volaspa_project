@@ -19,41 +19,45 @@
                     @foreach ($movie['Search'] as $singleMovie)
                         <div class="bg-base-100 shadow-xl">
                             <!-- Locandina del film -->
-                            <figure><img src="{{ $singleMovie['Poster'] }}" alt="Immagine non trovata" /></figure>
+                            <figure>
+                                <img src="{{ $singleMovie['Poster'] }}" alt="Immagine non trovata" />
+                            </figure>
+
                             <div class="card-body">
                                 <!-- Titolo del film -->
                                 <h2 class="card-title">{{ $singleMovie['Title'] }}</h2>
+
                                 <div class="card-actions justify-end">
-                                <button class="btn btn-primary" onclick="my_modal_{{ $singleMovie['imdbID'] }}.showModal()">Info</button>
+                                    <button class="btn btn-primary" onclick="my_modal_{{ $singleMovie['imdbID'] }}.showModal()">Info</button>
 
-                                <!-- Modale per mostrare i dati dei film -->
-                                <dialog id="my_modal_{{ $singleMovie['imdbID'] }}" class="modal">
-                                    <div class="modal-box">
-                                        <h3 class="font-bold text-lg">{{ $singleMovie['Title'] }}</h3>
+                                    <!-- Modale per mostrare i dati dei film -->
+                                    <dialog id="my_modal_{{ $singleMovie['imdbID'] }}" class="modal">
+                                        <div class="modal-box">
+                                            <h3 class="font-bold text-lg">{{ $singleMovie['Title'] }}</h3>
 
-                                        <ul>
-                                            <!-- Anno -->
-                                            <li class="flex">
-                                                <h3 class="font-bold me-2">Anno di uscita:</h3>
-                
-                                                <p>{{ $singleMovie['Year'] }}</p>
-                                            </li>
-                
-                                            <!-- Imdb ID -->
-                                            <li class="flex">
-                                                <h3 class="font-bold me-2">Imdb ID:</h3>
-                
-                                                <p>{{ $singleMovie['imdbID'] }}</p>
-                                            </li>
-                                        </ul>
+                                            <ul>
+                                                <!-- Anno -->
+                                                <li class="flex">
+                                                    <h3 class="font-bold me-2">Anno di uscita:</h3>
+                    
+                                                    <p>{{ $singleMovie['Year'] }}</p>
+                                                </li>
+                    
+                                                <!-- Imdb ID -->
+                                                <li class="flex">
+                                                    <h3 class="font-bold me-2">Imdb ID:</h3>
+                    
+                                                    <p>{{ $singleMovie['imdbID'] }}</p>
+                                                </li>
+                                            </ul>
 
-                                        <!-- Pulsante di chiusura modale -->
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn btn-warning">Chiudi</button>
-                                            </form>
+                                            <!-- Pulsante di chiusura modale -->
+                                            <div class="modal-action">
+                                                <form method="dialog">
+                                                    <button class="btn btn-warning">Chiudi</button>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
                                     </dialog>
                                 </div>
                             </div>
